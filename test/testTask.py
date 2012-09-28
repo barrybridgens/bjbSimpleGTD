@@ -17,6 +17,8 @@ class TestTask(unittest.TestCase):
 
     def test_uuid(self):
         self.assertEqual(4, self.task.get_uuid().version)
+        self.task2 = task.Task('Another Task')
+        self.assertNotEqual(self.task.get_uuid(), self.task2.get_uuid())
 
     def test_complete(self):
         self.assertFalse(self.task.is_complete())
