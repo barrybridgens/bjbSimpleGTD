@@ -25,5 +25,17 @@ class TestTask(unittest.TestCase):
         self.task.uncomplete()
         self.assertFalse(self.task.is_complete())
 
+    def test_contexts(self):
+        self.assertFalse(self.task.has_context())
+        self.assertFalse(self.task.is_valid_in_context('@home'))
+        self.task.add_context('@home')
+        self.assertTrue(self.task.has_context())
+        self.task.remove_context('INVALID CONTEXT')
+        self.assertTrue(self.task.has_context())
+        self.assertTrue(self.task.is_valid_in_context('@home'))
+        self.task.remove_context('@home')
+        self.assertFalse(self.task.is_valid_in_context('@home'))
+        self.assertFalse(self.task.has_context())
+
 if __name__ == '__main__':
     unittest.main()

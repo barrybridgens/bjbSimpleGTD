@@ -34,10 +34,13 @@ class Task:
     def has_context(self):
         return (len(self.contexts) > 0)
 
+    def is_valid_in_context(self, a_context):
+        return(a_context in self.contexts)
+
     def add_context(self, a_context):
         self.contexts.append(a_context)
 
     def remove_context(self, a_context):
-        #self.context.
-        pass
+        if a_context in self.contexts:
+            self.contexts.remove(a_context)
 
