@@ -14,6 +14,8 @@ class TestTask(unittest.TestCase):
 
     def test_description(self):
         self.assertEqual('TestTask', self.task.get_description())
+        self.task.set_description('New description')
+        self.assertEqual('New description', self.task.get_description())
 
     def test_uuid(self):
         self.assertEqual(4, self.task.get_uuid().version)
