@@ -44,3 +44,6 @@ class Task:
         if a_context in self.contexts:
             self.contexts.remove(a_context)
 
+    def get_contexts(self):
+        return(self.contexts)
+
